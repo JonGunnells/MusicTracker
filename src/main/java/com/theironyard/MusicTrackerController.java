@@ -25,8 +25,17 @@ public class MusicTrackerController {
         }
     }
 
-//
-    @RequestMapping(path = "/login", method = RequestMethod.GET)
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+    public String home(HttpSession session, Model model,  String search) {
+        String username = (String) session.getAttribute("username");
+        if (username == null) {
+            return "login";
+        }
+        return "home";
+    }
+
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(String username, String password, HttpSession session) throws Exception {
         User user = users.findByName(username);
         if (user == null) {
