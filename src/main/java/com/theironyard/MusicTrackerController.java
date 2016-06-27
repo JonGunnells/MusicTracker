@@ -55,10 +55,10 @@ public class MusicTrackerController {
     }
 
     @RequestMapping(path = "/add-album", method = RequestMethod.POST)
-    public String add(HttpSession session, String artist, String albumName, String genre, int rating, String releaseDate) {
+    public String add(HttpSession session, String artist, String albumName, String genre, String releaseDate,int rating) {
         String username = (String) session.getAttribute("username");
         User user = users.findByName(username);
-        Album a = new Album(artist, albumName, genre, rating, releaseDate);
+        Album a = new Album(artist, albumName, genre, releaseDate, rating);
         albums.save(a);
         return "redirect:/";
     }

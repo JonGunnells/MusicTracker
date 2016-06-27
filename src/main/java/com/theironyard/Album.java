@@ -19,10 +19,10 @@ public class Album {
     String genre;
 
     @Column(nullable = false)
-    int rating;
+    String releaseDate;
 
     @Column(nullable = false)
-    String releaseDate;
+    int rating;
 
     @ManyToOne
     User user;
@@ -30,11 +30,11 @@ public class Album {
     public Album() {
     }
 
-    public Album(String artist, String albumName, String genre, int rating, String releaseDate) {
+    public Album(String artist, String albumName, String genre, String releaseDate, int rating) {
         this.artist = artist;
         this.albumName = albumName;
         this.genre = genre;
-        this.rating = rating;
         this.releaseDate = releaseDate;
+        this.rating = rating;
     }
 }
