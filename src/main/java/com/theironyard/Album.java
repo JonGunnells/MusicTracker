@@ -22,7 +22,7 @@ public class Album {
     int rating;
 
     @Column(nullable = false)
-    int releaseDate;
+    String releaseDate;
 
     @ManyToOne
     User user;
@@ -30,7 +30,7 @@ public class Album {
     public Album() {
     }
 
-    public Album(String artist, String albumName, String genre, int rating, int releaseDate) {
+    public Album(String artist, String albumName, String genre, int rating, String releaseDate) {
         this.artist = artist;
         this.albumName = albumName;
         this.genre = genre;

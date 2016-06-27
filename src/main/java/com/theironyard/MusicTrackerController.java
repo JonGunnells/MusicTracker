@@ -26,7 +26,7 @@ public class MusicTrackerController {
     }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public String home(HttpSession session, Model model,  String search) {
+    public String home(HttpSession session, Model model, String search) {
         String username = (String) session.getAttribute("username");
         if (username == null) {
             return "login";
@@ -42,7 +42,7 @@ public class MusicTrackerController {
             user = new User(username, PasswordStorage.createHash(password));
             users.save(user);
         } else if (!PasswordStorage.verifyPassword(password, user.password)) {
-            throw new Exception("Wrong password!");
+            throw new Exception("Wrong password");
         }
         session.setAttribute("username", username);
         return "redirect:/";
@@ -55,7 +55,7 @@ public class MusicTrackerController {
     }
 
     @RequestMapping(path = "/add-album", method = RequestMethod.POST)
-    public String add(HttpSession session, String artist, String albumName, String genre, int rating, int releaseDate) {
+    public String add(HttpSession session, String artist, String albumName, String genre, int rating, String releaseDate) {
         String username = (String) session.getAttribute("username");
         User user = users.findByName(username);
         Album a = new Album(artist, albumName, genre, rating, releaseDate);
@@ -68,6 +68,8 @@ public class MusicTrackerController {
         albums.delete(id);
         return "redirect:/";
     }
+
+
 }
 
 

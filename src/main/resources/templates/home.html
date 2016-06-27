@@ -43,13 +43,13 @@
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
-    <input type="text" name="editRelease" placeholder="Release Date" />
+    <input type="text" name="editReleaseDate" placeholder="Release Date" />
     <button type="submit">Edit Album</button>
 </form>
 
 <ol>
     {{#albums}}
-    <li><b>{{artist}}</b>  {{album}} {{genre}} {{rating}} {{release}}
+    <li><b>{{artist}}</b>  {{albumName}} {{genre}} {{rating}} {{releaseDate}}
 
         <form action="/delete-album" method="post" style="display:inline-block">
             <input type="hidden" name="id" value="{{id}}"/>
