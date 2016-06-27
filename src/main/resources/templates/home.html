@@ -11,12 +11,12 @@
 
 <form action="/" method="get">
     <input type="text" name="search" placeholder="Search"/>
-    <button type="submit">Search!</button>
+    <button type="submit">Search</button>
 </form>
 
 
 <form action="/add-album" method="post">
-    <input type="text" name="name" placeholder="Name" style="font-family:"/>
+    <input type="text" name="artist" placeholder="Artist"/>
     <input type="text" name="albumName" placeholder="Album"/>
     <input type="text" name="genre" placeholder="Genre"/>
     <select name="rating">
@@ -33,7 +33,7 @@
 
 <form action="/edit-album" method="post">
     <input type="number" name="editId" placeholder="#"/>
-    <input type="text" name="editName" placeholder="Name" />
+    <input type="text" name="editArtist" placeholder="Artist" />
     <input type="text" name="editAlbum" placeholder="Album" />
     <input type="text" name="editGenre" placeholder="Genre"/>
     <select name="editRating">
@@ -49,7 +49,7 @@
 
 <ol>
     {{#albums}}
-    <li><b>{{name}}</b>  {{album}} {{genre}} {{rating}} {{release}}
+    <li><b>{{artist}}</b>  {{album}} {{genre}} {{rating}} {{release}}
 
         <form action="/delete-album" method="post" style="display:inline-block">
             <input type="hidden" name="id" value="{{id}}"/>
